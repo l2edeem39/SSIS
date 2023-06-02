@@ -1,0 +1,2906 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/19/2016 5:30:11 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="R3B5900372"
+  DTS:CreatorName="RSTOWER\manitap"
+  DTS:DTSID="{66F31A27-410D-4C90-9960-03A6FC8A14EF}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1054"
+  DTS:ObjectName="ExportToExcel_IPA_Health"
+  DTS:PackageType="5"
+  DTS:VersionBuild="434"
+  DTS:VersionGUID="{33F17631-9223-4139-90CC-C02939395031}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[bpd181.miscdb.glconnect1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{300132E1-6CCA-4191-B696-01B56A50EA53}"
+      DTS:ObjectName="bpd181.miscdb.glconnect1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=bpd181;User ID=glconnect;Initial Catalog=miscdb;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-ExportToExcel_IPA_Health-{300132E1-6CCA-4191-B696-01B56A50EA53}bpd181.miscdb.glconnect1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{019F44BA-F925-4831-8F40-ABC68822BED2}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Result_SSIS\Policy_Health.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FCC0E97C-4E55-4C94-A4E5-FFF99B04CDEE}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::VariableLocal]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1054"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="874"
+          DTS:ConnectionString="D:\Result_SSIS\Policy_Health_25660602_1801.xlsx">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ลำดับ"
+              DTS:DTSID="{D2A8A2D9-75DC-403C-85A9-33CA9F76D73B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="subcalss"
+              DTS:DTSID="{0C9ED764-FDF9-419D-8F42-D5E52A5C9A45}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="วันที่ขาย"
+              DTS:DTSID="{F5614569-A1A4-4AFA-BA21-76B4F73B373E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="เลขกรมธรรม์"
+              DTS:DTSID="{5A4B48D3-A438-46E3-B9C0-BFC2C5DADE75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="เลขสลักหลัง"
+              DTS:DTSID="{7C5A1423-15B2-4E39-8039-7A9AA6AB3F5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ชื่อผู้เอาประกัน"
+              DTS:DTSID="{701AD3B1-D91D-48CD-BB63-203D57F7AA57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="วันที่เริ่มคุ้มครอง"
+              DTS:DTSID="{51B223BC-88EB-4134-BB94-A277E1FF959D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="วันที่สิ้นสุด"
+              DTS:DTSID="{E7B3B404-B344-45BE-8AD5-7CCAC79D5570}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PlanName"
+              DTS:DTSID="{E3118B6C-AB66-4892-AE66-1F089A4E3DD8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ทุนความคุ้มครองฉุกเฉิน"
+              DTS:DTSID="{8299BF74-89AD-4B2A-9E01-82A2C0F9DC72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="สถานะกรมธรรม์"
+              DTS:DTSID="{BB6C7FF8-BEB4-4396-B996-85B2B26AE73B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="วันที่ยกเลิกกรมธรรม์"
+              DTS:DTSID="{2884CACF-FA0C-4186-94C5-AF7D46384E55}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Package"
+              DTS:DTSID="{3263F082-226F-4958-A51E-8E8D26AE0DAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Product"
+              DTS:DTSID="{5C761B6B-866F-49D7-A85E-B03146E05778}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Policy_IPA_Health_Template.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A035D53C-6660-4E66-B4A9-3F7647CE6C5A}"
+      DTS:ObjectName="Policy_IPA_Health_Template.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Policy_IPA_Health_Template.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[r4a932.miscdb.glconnect]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D4D2B0DF-A62D-4FDA-B935-3C4F8F83ED7B}"
+      DTS:ObjectName="r4a932.miscdb.glconnect">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=r4a932;User ID=glconnect;Initial Catalog=miscdb;Persist Security Info=True;Application Name=SSIS-ExportToExcel_SOS_VIB-{D4D2B0DF-A62D-4FDA-B935-3C4F8F83ED7B}r4a932.miscdb.glconnect;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[r4ad01.miscdb.glconnect]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BD687284-9663-4E01-BEE7-C45DBB1610AD}"
+      DTS:ObjectName="r4ad01.miscdb.glconnect">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=r4ad01;User ID=glconnect;Initial Catalog=miscdb;Provider=SQLNCLI11.1;Application Name=SSIS-ExportToExcel_IPA_Health-{BD687284-9663-4E01-BEE7-C45DBB1610AD}r4ad01.miscdb.glconnect;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+C9BOhNt9kihdO7plP7VnwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAtDOBuIJWJFxhdslf30kOKAAAAAASAAACgAAAAEAAAADac+pPkw/ZvKLMHGI7H2XUQAAAA59Iftkh0BYcxBVww+TsdxhQAAACGiei9cwFvbGyl/wnXRP1ogJbtzg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{624DBA48-1B5D-4F08-A33B-3C68686DC990}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=vmail.viriyah.co.th;UseWindowsAuthentication=True;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[VIRCOREBATCHJOB.job_nonmotor.dbadm]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{483243AC-C1D2-4A01-B512-63E5F43EEA44}"
+      DTS:ObjectName="VIRCOREBATCHJOB.job_nonmotor.dbadm">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=VIRCOREBATCHJOB;User ID=dbadm;Initial Catalog=job_nonmotor;Provider=SQLNCLI11.1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[visdbcentral.VIS_DB.vissa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B59649AC-5876-4B2A-B83E-9B8977D69C62}"
+      DTS:ObjectName="visdbcentral.VIS_DB.vissa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=visdbcentral;User ID=vissa;Initial Catalog=VIS_DB;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BC8B372A-13BC-46C8-8E64-1BDF8008A5FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="countrow">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{274B42FA-79AB-40B3-AB39-3BBEC3740B7E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;\\\\virnonmotor01\\d$\\FileExport\\VIB\\excel_ssis\\Policy_Health_&quot;+(DT_STR,4,1252)DATEPART(&quot;YYYY&quot; , DATEADD( &quot;year&quot;, 543, GETDATE() ) ) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,2,1252)DATEPART(&quot;MM&quot; ,GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,2,1252)(DATEPART(&quot;DD&quot; ,GETDATE()) ), 2) +  &quot;_&quot;&#xA;+ Right(&quot;0&quot; + (DT_STR,4,1252) DatePart(&quot;hh&quot;,getdate()),2) + &quot;&quot; + Right(&quot;0&quot; +  (DT_STR,4,1252) DatePart(&quot;n&quot;,getdate()),2)  +&quot;&quot;+ &quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="8">\\virnonmotor01\d$\FileExport\VIB\excel_ssis\Policy_Health_25660602_1801.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{433C7079-DC8A-4B3A-9591-589F7F942A4B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;D:\\Result_SSIS\\Policy_Health_&quot;+(DT_STR,4,1252)DATEPART(&quot;YYYY&quot; , DATEADD( &quot;year&quot;, 543, GETDATE() ) ) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,2,1252)DATEPART(&quot;MM&quot; ,GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,2,1252)(DATEPART(&quot;DD&quot; ,GETDATE()) ), 2) +  &quot;_&quot;&#xA;+ Right(&quot;0&quot; + (DT_STR,4,1252) DatePart(&quot;hh&quot;,getdate()),2) + &quot;&quot; + Right(&quot;0&quot; +  (DT_STR,4,1252) DatePart(&quot;n&quot;,getdate()),2)  +&quot;&quot;+ &quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VariableLocal">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\Result_SSIS\Policy_Health_25660602_1801.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E3DB55DD-0BF0-48C7-8C05-1A3EA29D4C56}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Data Conversion"
+              componentClassID="DTSTransform.DataConvert.3"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[run_no]"
+                      cachedDataType="i4"
+                      cachedName="run_no"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[run_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[pol_pre]"
+                      cachedCodepage="874"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="pol_pre"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_pre]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[pol_no]"
+                      cachedCodepage="874"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="pol_no"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[endos_no]"
+                      cachedCodepage="874"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="endos_no"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[ins_name]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="ins_name"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ins_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[start_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="start_date"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[end_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="end_date"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[planname]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="planname"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[planname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[sum_insured]"
+                      cachedDataType="numeric"
+                      cachedName="sum_insured"
+                      cachedPrecision="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sum_insured]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[status]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="status"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[cancel_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="cancel_date"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cancel_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[package]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="package"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[package]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[product]"
+                      cachedDataType="wstr"
+                      cachedLength="210"
+                      cachedName="product"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[product]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[issue_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="issue_date"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[issue_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of run_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of run_no]"
+                      name="Copy of run_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[run_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pol_pre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pol_pre]"
+                      name="Copy of pol_pre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_pre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pol_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pol_no]"
+                      name="Copy of pol_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of endos_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of endos_no]"
+                      name="Copy of endos_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ins_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ins_name]"
+                      name="Copy of ins_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ins_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of start_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of start_date]"
+                      name="Copy of start_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of end_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of end_date]"
+                      name="Copy of end_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of planname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of planname]"
+                      name="Copy of planname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[planname]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sum_insured]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sum_insured]"
+                      name="Copy of sum_insured"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sum_insured]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status]"
+                      name="Copy of status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cancel_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cancel_date]"
+                      name="Copy of cancel_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cancel_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of package]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of package]"
+                      name="Copy of package"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[package]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of product]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="210"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of product]"
+                      name="Copy of product"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[product]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of issue_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of issue_date]"
+                      name="Copy of issue_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[issue_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Destination"
+              componentClassID="DTSAdapter.ExcelDestination.3"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Sheet 1$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of issue_date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of issue_date"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่ขาย]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of issue_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of product]"
+                      cachedDataType="wstr"
+                      cachedLength="210"
+                      cachedName="Copy of product"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Product]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of product]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of package]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of package"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Package]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of package]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of cancel_date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of cancel_date"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่ยกเลิกกรมธรรม์]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cancel_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of status"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[สถานะกรมธรรม์]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of sum_insured]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of sum_insured"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ทุนความคุ้มครองฉุกเฉิน]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sum_insured]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of planname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of planname"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[PlanName]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of planname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of end_date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of end_date"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่สิ้นสุด]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of end_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of start_date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of start_date"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่เริ่มคุ้มครอง]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of start_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of ins_name]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Copy of ins_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ชื่อผู้เอาประกัน]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ins_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of endos_no]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Copy of endos_no"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[เลขสลักหลัง]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of endos_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of pol_no]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Copy of pol_no"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[เลขกรมธรรม์]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pol_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of pol_pre]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Copy of pol_pre"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[subcalss]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pol_pre]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of run_no]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of run_no"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ลำดับ]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of run_no]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ลำดับ]"
+                      dataType="wstr"
+                      length="255"
+                      name="ลำดับ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[subcalss]"
+                      dataType="wstr"
+                      length="255"
+                      name="subcalss" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่ขาย]"
+                      dataType="wstr"
+                      length="255"
+                      name="วันที่ขาย" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[เลขกรมธรรม์]"
+                      dataType="wstr"
+                      length="255"
+                      name="เลขกรมธรรม์" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[เลขสลักหลัง]"
+                      dataType="wstr"
+                      length="255"
+                      name="เลขสลักหลัง" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ชื่อผู้เอาประกัน]"
+                      dataType="wstr"
+                      length="255"
+                      name="ชื่อผู้เอาประกัน" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่เริ่มคุ้มครอง]"
+                      dataType="wstr"
+                      length="255"
+                      name="วันที่เริ่มคุ้มครอง" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่สิ้นสุด]"
+                      dataType="wstr"
+                      length="255"
+                      name="วันที่สิ้นสุด" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[PlanName]"
+                      dataType="wstr"
+                      length="255"
+                      name="PlanName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[ทุนความคุ้มครองฉุกเฉิน]"
+                      dataType="wstr"
+                      length="255"
+                      name="ทุนความคุ้มครองฉุกเฉิน" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[สถานะกรมธรรม์]"
+                      dataType="wstr"
+                      length="255"
+                      name="สถานะกรมธรรม์" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[วันที่ยกเลิกกรมธรรม์]"
+                      dataType="wstr"
+                      length="255"
+                      name="วันที่ยกเลิกกรมธรรม์" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Package]"
+                      dataType="wstr"
+                      length="255"
+                      name="Package" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Product]"
+                      dataType="wstr"
+                      length="255"
+                      name="Product" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="DTSAdapter.OLEDBSource.3"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+     run_no
+    ,pol_pre
+    ,issue_date
+    ,pol_no
+    ,endos_no
+    ,ins_name    
+    ,start_date    
+    ,end_date    
+    ,planname    
+    ,sum_insured
+    ,status
+    ,cancel_date
+    ,package
+    ,product 
+FROM IPA_Temp_GetData
+
+DELETE FROM IPA_Temp_GetData</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">874</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[r4ad01.miscdb.glconnect]"
+                  connectionManagerRefId="Package.ConnectionManagers[r4ad01.miscdb.glconnect]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[run_no]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[run_no]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[run_no]"
+                      name="run_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_pre]"
+                      codePage="874"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pol_pre]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_pre]"
+                      name="pol_pre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_no]"
+                      codePage="874"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pol_no]"
+                      length="25"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pol_no]"
+                      name="pol_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos_no]"
+                      codePage="874"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[endos_no]"
+                      length="25"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos_no]"
+                      name="endos_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ins_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ins_name]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ins_name]"
+                      name="ins_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_date]"
+                      name="start_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_date]"
+                      name="end_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[planname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[planname]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[planname]"
+                      name="planname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sum_insured]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sum_insured]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sum_insured]"
+                      name="sum_insured"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cancel_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cancel_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cancel_date]"
+                      name="cancel_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[package]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[package]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[package]"
+                      name="package"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[product]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[product]"
+                      length="210"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[product]"
+                      name="product"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[issue_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[issue_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[issue_date]"
+                      name="issue_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[run_no]"
+                      dataType="i4"
+                      name="run_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pol_pre]"
+                      codePage="874"
+                      dataType="str"
+                      length="3"
+                      name="pol_pre" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pol_no]"
+                      codePage="874"
+                      dataType="str"
+                      length="25"
+                      name="pol_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[endos_no]"
+                      codePage="874"
+                      dataType="str"
+                      length="25"
+                      name="endos_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ins_name]"
+                      dataType="wstr"
+                      length="200"
+                      name="ins_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_date]"
+                      dataType="dbTimeStamp"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_date]"
+                      dataType="dbTimeStamp"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[planname]"
+                      dataType="wstr"
+                      length="200"
+                      name="planname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sum_insured]"
+                      dataType="numeric"
+                      name="sum_insured"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="30"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cancel_date]"
+                      dataType="dbTimeStamp"
+                      name="cancel_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[package]"
+                      dataType="wstr"
+                      length="50"
+                      name="package" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[product]"
+                      dataType="wstr"
+                      length="210"
+                      name="product" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[issue_date]"
+                      dataType="dbTimeStamp"
+                      name="issue_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[run_no]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[run_no]"
+                      name="run_no" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pol_pre]"
+                      codePage="874"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pol_pre]"
+                      name="pol_pre" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[issue_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[issue_date]"
+                      name="issue_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pol_no]"
+                      codePage="874"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pol_no]"
+                      name="pol_no" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[endos_no]"
+                      codePage="874"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[endos_no]"
+                      name="endos_no" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ins_name]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ins_name]"
+                      name="ins_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_date]"
+                      name="start_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_date]"
+                      name="end_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[planname]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[planname]"
+                      name="planname" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sum_insured]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sum_insured]"
+                      name="sum_insured"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cancel_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cancel_date]"
+                      name="cancel_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[package]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[package]"
+                      name="package" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[product]"
+                      dataType="wstr"
+                      length="210"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[product]"
+                      name="product" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Row Count"
+              componentClassID="DTSTransform.RowCount.3"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::countrow</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\File System Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="File System Task"
+      DTS:DTSID="{62881EBC-3E99-46E3-AE73-544657C6E417}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="{A035D53C-6660-4E66-B4A9-3F7647CE6C5A}"
+          TaskDestinationPath="User::VariableLocal"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FtpTask.FtpTask, Microsoft.SqlServer.FtpTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="FTP Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{392C6134-E86D-47D6-A632-808BFC440C79}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FtpTask.FtpTask, Microsoft.SqlServer.FtpTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          TaskIsLocalPathVar="True"
+          TaskLocalPath="User::VariableLocal"
+          TaskIsRemotePathVar="True"
+          TaskRemotePath="User::VariableLocal"
+          TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET DATA"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{EFFBE81D-D2B4-44BB-A9C0-EC7EEE25F58C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET DATA">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GET DATA\Get Data From VIB"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4FC3B3A3-1769-4B28-81B6-FE323DFD4522}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Data From VIB"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BD687284-9663-4E01-BEE7-C45DBB1610AD}"
+              SQLTask:SqlStatementSource="exec sp_IPA_GetData '',''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GET DATA\Get Data Insert"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{7193149C-172C-4C7B-BA90-18445F7FC04B}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Data Insert"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GET DATA\Get Data Insert\Data Conversion"
+                  componentClassID="DTSTransform.DataConvert.3"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[Issuedate]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Issuedate"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[Issuedate]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[policyno]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="policyno"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[policyno]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[endos]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="endos"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[insuredname]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="insuredname"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[insuredname]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[startdate]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="startdate"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[startdate]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[enddate]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="enddate"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[enddate]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[plannameeng]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="plannameeng"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[plannameeng]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[sumemergency]"
+                          cachedDataType="r8"
+                          cachedName="sumemergency"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[sumemergency]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input].Columns[status]"
+                          cachedCodepage="874"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="status"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[Issuedate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[Issuedate]"
+                          name="Issuedate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[Issuedate]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[policyno]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[policyno]"
+                          name="policyno"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[policyno]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[endos]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[endos]"
+                          name="endos"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[insuredname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[insuredname]"
+                          name="insuredname"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[insuredname]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[startdate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[startdate]"
+                          name="startdate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[startdate]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[enddate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[enddate]"
+                          name="enddate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[enddate]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[plannameeng]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[plannameeng]"
+                          name="plannameeng"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[plannameeng]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[sumemergency]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[sumemergency]"
+                          name="sumemergency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[sumemergency]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[status]"
+                          name="status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GET DATA\Get Data Insert\OLE DB Destination"
+                  componentClassID="DTSAdapter.OLEDBDestination.3"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TempIPAHealthReport]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">874</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[visdbcentral.VIS_DB.vissa]"
+                      connectionManagerRefId="Package.ConnectionManagers[visdbcentral.VIS_DB.vissa]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[status]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="status"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Transtype]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[status]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[startdate]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="startdate"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlanEffectiveFromDate]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[startdate]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[policyno]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="policyno"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyNumber]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[policyno]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[plannameeng]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="plannameeng"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlanName]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[plannameeng]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[insuredname]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="insuredname"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InsuredPartyName]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[insuredname]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[endos]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="endos"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndorseNumber]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[endos]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[enddate]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="enddate"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlanEffectiveToDate]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[enddate]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sumemergency]"
+                          cachedDataType="r8"
+                          cachedName="sumemergency"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SumEmergency]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[sumemergency]" />
+                        <inputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Issuedate]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="Issuedate"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LifePolicyIssueDate]"
+                          lineageId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output].Columns[Issuedate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LifePolicyIssueDate]"
+                          dataType="wstr"
+                          length="500"
+                          name="LifePolicyIssueDate" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyNumber]"
+                          dataType="wstr"
+                          length="500"
+                          name="PolicyNumber" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndorseNumber]"
+                          dataType="wstr"
+                          length="500"
+                          name="EndorseNumber" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InsuredPartyName]"
+                          dataType="wstr"
+                          length="500"
+                          name="InsuredPartyName" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlanEffectiveFromDate]"
+                          dataType="wstr"
+                          length="500"
+                          name="PlanEffectiveFromDate" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlanEffectiveToDate]"
+                          dataType="wstr"
+                          length="500"
+                          name="PlanEffectiveToDate" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlanName]"
+                          dataType="wstr"
+                          length="500"
+                          name="PlanName" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SumEmergency]"
+                          dataType="wstr"
+                          length="500"
+                          name="SumEmergency" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Transtype]"
+                          dataType="wstr"
+                          length="500"
+                          name="Transtype" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GET DATA\Get Data Insert\OLE DB Source"
+                  componentClassID="DTSAdapter.OLEDBSource.3"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">exec sp_IPA_Health</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">874</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GET DATA\Get Data Insert\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[bpd181.miscdb.glconnect1]"
+                      connectionManagerRefId="Package.ConnectionManagers[bpd181.miscdb.glconnect1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[Issuedate]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Issuedate]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[Issuedate]"
+                          name="Issuedate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[policyno]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[policyno]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[policyno]"
+                          name="policyno"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[endos]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[endos]"
+                          name="endos"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[insuredname]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insuredname]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[insuredname]"
+                          name="insuredname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[startdate]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[startdate]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[startdate]"
+                          name="startdate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[enddate]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[enddate]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[enddate]"
+                          name="enddate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[plannameeng]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[plannameeng]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[plannameeng]"
+                          name="plannameeng"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[sumemergency]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sumemergency]"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[sumemergency]"
+                          name="sumemergency"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]"
+                          codePage="874"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].Columns[status]"
+                          name="status"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Issuedate]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="Issuedate" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[policyno]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="policyno" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[endos]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="endos" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insuredname]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="insuredname" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[startdate]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="startdate" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[enddate]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="enddate" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[plannameeng]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="plannameeng" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sumemergency]"
+                          dataType="r8"
+                          name="sumemergency" />
+                        <externalMetadataColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          name="status" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Issuedate]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Issuedate]"
+                          name="Issuedate" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[policyno]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[policyno]"
+                          name="policyno" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[endos]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[endos]"
+                          name="endos" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insuredname]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insuredname]"
+                          name="insuredname" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[startdate]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[startdate]"
+                          name="startdate" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[enddate]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[enddate]"
+                          name="enddate" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[plannameeng]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[plannameeng]"
+                          name="plannameeng" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sumemergency]"
+                          dataType="r8"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sumemergency]"
+                          name="sumemergency" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                          codePage="874"
+                          dataType="str"
+                          length="250"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                          name="status" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GET DATA\Get Data Insert.Paths[Data Conversion Output]"
+                  endId="Package\GET DATA\Get Data Insert\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\GET DATA\Get Data Insert\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\GET DATA\Get Data Insert.Paths[OLE DB Source Output]"
+                  endId="Package\GET DATA\Get Data Insert\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\GET DATA\Get Data Insert\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GET DATA\TRUNCATE TABLE IPA_Temp_GetData"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F3ABFCAF-3EA4-4DF6-B406-9A9BE30241F8}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE TABLE IPA_Temp_GetData"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BD687284-9663-4E01-BEE7-C45DBB1610AD}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE IPA_Temp_GetData&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GET DATA.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{2FB4B09B-2B1C-4470-8136-D123F2A8148F}"
+          DTS:From="Package\GET DATA\TRUNCATE TABLE IPA_Temp_GetData"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\GET DATA\Get Data From VIB" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Fail"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:DelayValidation="True"
+      DTS:Description="Send Mail Task FTP Fail"
+      DTS:DTSID="{ad0391fc-2037-4044-ae77-1fc15f8be018}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Fail"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FileAttachments">@[User::VariableLocal]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Viriyah customer report "+ RIGHT("0" + (DT_STR,2,1252)DATEPART("DD" ,GETDATE()), 2) +"/" + RIGHT("0" + (DT_STR,2,1252)DATEPART("MM" ,GETDATE()), 2) + "/" +(DT_STR,4,1252)DATEPART("YYYY" , DATEADD( "year", 543, GETDATE() ) )</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{624DBA48-1B5D-4F08-A33B-3C68686DC990}"
+          SendMailTask:From="prodigy58@viriyah.co.th"
+          SendMailTask:To="prodigy58@viriyah.co.th"
+          SendMailTask:CC="prodigy59@viriyah.co.th"
+          SendMailTask:Subject="Viriyah customer report 02/06/2566" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="D:\Result_SSIS\Policy_Health_25660602_1801.xlsx" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Success"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:DelayValidation="True"
+      DTS:Description="Send Mail Task FTP Success"
+      DTS:DTSID="{c7939527-dca5-4b05-a0f0-7c8784a32fa7}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Success"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FileAttachments">@[User::VariableLocal]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Viriyah customer report "+ RIGHT("0" + (DT_STR,2,1252)DATEPART("DD" ,GETDATE()), 2) +"/" + RIGHT("0" + (DT_STR,2,1252)DATEPART("MM" ,GETDATE()), 2) + "/" +(DT_STR,4,1252)DATEPART("YYYY" , DATEADD( "year", 543, GETDATE() ) )</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{624DBA48-1B5D-4F08-A33B-3C68686DC990}"
+          SendMailTask:From="prodigy59@viriyah.co.th"
+          SendMailTask:To="prodigy58@viriyah.co.th;pornchaima@viriyah.co.th"
+          SendMailTask:CC="prodigy59@viriyah.co.th"
+          SendMailTask:Subject="Viriyah customer report 02/06/2566" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="D:\Result_SSIS\Policy_Health_25660602_1801.xlsx" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9DC89CE9-BFB5-40D1-A12A-EC71EB7378B8}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Send Mail Success" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CDBD6C15-D909-4099-AC5C-524742C69013}"
+      DTS:From="Package\File System Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C848AA8-B8D4-41ED-ADEA-D1F981C01254}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Send Mail Fail"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B471C3E-77F7-49BA-BDE8-80068F7C7EDE}"
+      DTS:From="Package\GET DATA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\File System Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="574.698412698413,193.063492063491" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\File System Task"
+          TopLeft="571.698412698413,55.063492063492" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\FTP Task"
+          TopLeft="812,200" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\GET DATA\Get Data From VIB"
+          TopLeft="59.5,121" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\GET DATA\Get Data Insert"
+          TopLeft="70.5,203" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\GET DATA\TRUNCATE TABLE IPA_Temp_GetData"
+          TopLeft="36.5,35" />
+        <EdgeLayout
+          Id="Package\GET DATA.PrecedenceConstraints[Constraint 4]"
+          TopLeft="144.25,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="284,302"
+          Size="284,345"
+          Id="Package\GET DATA"
+          TopLeft="96.1428571428572,51.2857142857143" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Send Mail Fail"
+          TopLeft="674,358" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Send Mail Success"
+          TopLeft="456.698412698413,358.063492063491" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="627.698412698413,235.063492063491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-85,123"
+              Start="0,0"
+              End="-85,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.9540229885058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.9540229885058"
+                    Point2="0,49.9540229885058"
+                    Point3="-4,49.9540229885058" />
+                  <mssgle:LineSegment
+                    End="-81,49.9540229885058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-81,49.9540229885058"
+                    Point2="-85,49.9540229885058"
+                    Point3="-85,53.9540229885058" />
+                  <mssgle:LineSegment
+                    End="-85,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="653.698412698413,97.063492063492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95.999999999999"
+              Start="0,0"
+              End="0,88.499999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.499999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="676.698412698413,235.063492063491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.301587301587,122.936507936509"
+              Start="0,0"
+              End="83.301587301587,115.436507936509">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.9282369397316" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.9282369397316"
+                    Point2="0,49.9282369397316"
+                    Point3="4,49.9282369397316" />
+                  <mssgle:LineSegment
+                    End="79.301587301587,49.9282369397316" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.301587301587,49.9282369397316"
+                    Point2="83.301587301587,49.9282369397316"
+                    Point3="83.301587301587,53.9282369397316" />
+                  <mssgle:LineSegment
+                    End="83.301587301587,115.436507936509" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.4094459945435,54.9282369397316,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="380.142857142857,223.785714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191.555555555556,-147.722222222222"
+              Start="0,0"
+              End="184.055555555556,-147.722222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="91.7777777777779,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.7777777777779,0"
+                    Point2="95.7777777777779,0"
+                    Point3="95.7777777777779,-4" />
+                  <mssgle:LineSegment
+                    End="95.7777777777779,-143.722222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="95.7777777777779,-143.722222222222"
+                    Point2="95.7777777777779,-147.722222222222"
+                    Point3="99.7777777777779,-147.722222222222" />
+                  <mssgle:LineSegment
+                    End="184.055555555556,-147.722222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="426,155" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Data Flow Task\Row Count"
+          TopLeft="429,342" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="524,247" />
+        <NodeLayout
+          Size="164,44"
+          Id="Package\Data Flow Task\Excel Destination"
+          TopLeft="526,426" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="493.5,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.5,42"
+              Start="0,0"
+              End="114.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="110.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.5,21"
+                    Point2="114.5,21"
+                    Point3="114.5,25" />
+                  <mssgle:LineSegment
+                    End="114.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="501,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.5,50"
+              Start="0,0"
+              End="103.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="99.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.5,25"
+                    Point2="103.5,25"
+                    Point3="103.5,29" />
+                  <mssgle:LineSegment
+                    End="103.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="604.5,289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-111,53"
+              Start="0,0"
+              End="-111,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-107,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107,26.5"
+                    Point2="-111,26.5"
+                    Point3="-111,30.5" />
+                  <mssgle:LineSegment
+                    End="-111,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\GET DATA\Get Data Insert">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\GET DATA\Get Data Insert\OLE DB Destination"
+          TopLeft="515,357" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\GET DATA\Get Data Insert\OLE DB Source"
+          TopLeft="525,137" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\GET DATA\Get Data Insert\Data Conversion"
+          TopLeft="518,242" />
+        <EdgeLayout
+          Id="Package\GET DATA\Get Data Insert.Paths[OLE DB Source Output]"
+          TopLeft="598,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GET DATA\Get Data Insert.Paths[Data Conversion Output]"
+          TopLeft="598.25,284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GET DATA\Get Data Insert\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GET DATA\Get Data Insert\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
